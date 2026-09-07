@@ -14,6 +14,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mramdaspagar@gmail.com
+    password: zzyglphtvqtrqrqk
 
 server:
   port: 8081
