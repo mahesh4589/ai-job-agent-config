@@ -1,3 +1,6 @@
+
+server:
+  port: 8081
 spring:
   application:
     name: auth-service
@@ -20,8 +23,12 @@ spring:
     username: mramdaspagar@gmail.com
     password: zzyglphtvqtrqrqk
 
-server:
-  port: 8081
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 eureka:
   client:
