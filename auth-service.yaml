@@ -36,10 +36,11 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
-jwt:
-  secret: my-secret-key-12345678901234567890
-  expiration-ms: 3600000
-  refresh-expiration-ms: 604800000
+app:
+  jwt:
+    secret: my-secret-key-12345678901234567890
+    expiration-ms: 3600000
+    refresh-expiration-ms: 604800000
 
 management:
   endpoints:
