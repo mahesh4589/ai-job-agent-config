@@ -1,0 +1,39 @@
+server:
+  port: ${SERVER_PORT:8086}
+
+spring:
+  application:
+    name: notification-service
+
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: notification-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: ${MAIL_SMTP_AUTH:false}
+      mail.smtp.starttls.enable: ${MAIL_SMTP_STARTTLS_ENABLE:false}
+
+app:
+  kafka:
+    topics:
+      otp-requested: ${OTP_REQUESTED_TOPIC:otp-requested}
+  mail:
+    from: ${MAIL_FROM:no-reply@aijobagent.local}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
